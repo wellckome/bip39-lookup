@@ -49,6 +49,13 @@ body.light {
   font-size: 18px;
   font-weight: bold;
   animation: pulseGlow 2s infinite alternate;
+  color: #fff;
+  text-shadow: 0 0 8px #0ff, 0 0 16px #09c, 0 0 32px #0ff;
+}
+
+body.light .frase-topo {
+  color: #222;
+  text-shadow: 0 0 6px #09c, 0 0 12px #0ff;
 }
 
 @keyframes pulseGlow {
@@ -88,6 +95,11 @@ h1 {
   to   { text-shadow: 0 0 20px #09c; }
 }
 
+body.light h1 {
+  color: #004488;
+  text-shadow: 0 0 8px #09c;
+}
+
 /* Input */
 #numberInput {
   width: 100%; padding: 10px; font-size: 16px;
@@ -113,8 +125,27 @@ body.light #numberInput {
   font-size: 22px;
   font-family: 'Courier New', monospace;
   font-weight: bold;
-  text-shadow: 0 0 12px #00ffd5, 0 0 24px #2abb66;
   transition: text-shadow 0.3s ease, color 0.3s ease;
+}
+
+/* Resultado válido */
+#result.valid {
+  color: #00ffd5;
+  text-shadow: 0 0 12px #00ffd5, 0 0 24px #2abb66;
+}
+body.light #result.valid {
+  color: #006666;
+  text-shadow: 0 0 8px #00ffd5, 0 0 16px #2abb66;
+}
+
+/* Resultado inválido */
+#result.invalid {
+  color: #ff4444;
+  text-shadow: 0 0 12px #ff4444, 0 0 24px #ff0000;
+}
+body.light #result.invalid {
+  color: #cc0000;
+  text-shadow: 0 0 8px #ff4444, 0 0 16px #ff0000;
 }
 
 /* Botões */
@@ -140,4 +171,9 @@ button {
 button:hover {
   box-shadow: 0 0 12px #0ff;
   transform: scale(1.05);
+}
+
+/* Responsividade */
+@media (max-width: 360px) {
+  #logo { width: 80px; height: 80px; }
 }

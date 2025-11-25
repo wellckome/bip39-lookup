@@ -2052,25 +2052,3 @@ const words = [
   "zoo",
 ];
 
-const input = document.getElementById('numberInput');
-const result = document.getElementById('result');
-const clearBtn = document.getElementById('clearBtn');
-
-input.addEventListener('keypress', e => {
-  if (e.key === 'Enter') {
-    const num = parseInt(input.value);
-    if (num >= 1 && num <= 2048 && words[num]) {
-      result.textContent = words[num];
-      input.value = '';
-      input.focus();
-    } else {
-      result.textContent = 'Número não encontrado.';
-    }
-  }
-});
-
-clearBtn.addEventListener('click', () => {
-  input.value = '';
-  result.textContent = 'Digite um número e pressione Enter';
-  input.focus();
-});

@@ -1,10 +1,13 @@
-function pesquisar() {
-  const input   = document.getElementById("numberInput");
-  const result  = document.getElementById("result");
-  const counter = document.getElementById("counter");
-  const history = document.getElementById("history");
-  const num     = parseInt(input.value, 10);
+let tentativas = 0;
 
+const input   = document.getElementById('numberInput');
+const result  = document.getElementById('result');
+const clearBtn= document.getElementById('clearBtn');
+const counter = document.getElementById('counter');
+const history = document.getElementById('history');
+
+function pesquisar() {
+  const num = parseInt(input.value, 10);
   tentativas++;
   counter.textContent = `Tentativas: ${tentativas}`;
 
@@ -21,7 +24,6 @@ function pesquisar() {
     result.style.color = "red";
   }
 
-  // adiciona ao histórico com classe
   const item = document.createElement("div");
   item.textContent = mensagem;
   item.classList.add(classe);
@@ -30,3 +32,21 @@ function pesquisar() {
   input.value = '';
   input.focus();
 }
+
+function limpar() {
+  input.value = '';
+  input.focus();
+  result.textContent = 'Digite um número e pressione Enter';
+  result.style.color = "#eee";
+  tentativas = 0;
+  counter.textContent = "Tentativas: 0";
+  history.innerHTML = '';
+}
+
+input.addEventListener('keydown', e => {
+  if (e.key === 'Enter') {
+    pesquisar();
+  }
+});
+
+clearBtn.addEventListener('click', limpar);

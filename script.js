@@ -1,15 +1,9 @@
 const input   = document.getElementById('numberInput');
 const result  = document.getElementById('result');
-const toggleBtn = document.getElementById('toggleTheme');
-const body = document.body;
 
-// começa no tema escuro
-body.classList.add('dark');
-
+// Função de pesquisa
 function pesquisar() {
   const num = parseInt(input.value, 10);
-
-  // remove classes antigas
   result.classList.remove("valid", "invalid");
 
   if (!isNaN(num) && num >= 1 && num <= words.length - 1) {
@@ -24,6 +18,7 @@ function pesquisar() {
   input.focus();
 }
 
+// Função limpar
 function limpar() {
   input.value = '';
   input.focus();
@@ -31,17 +26,21 @@ function limpar() {
   result.classList.remove("valid", "invalid");
 }
 
-// Evento para Enter
+// Evento Enter
 input.addEventListener('keydown', e => {
   if (e.key === 'Enter') {
     pesquisar();
   }
 });
 
-// Alternar tema claro/escuro
-toggleBtn.addEventListener('click', () => {
-  body.classList.toggle('dark');
-  body.classList.toggle('light');
+// Função para trocar tema
+function setTheme(theme) {
+  document.body.className = theme;
+}
 
-  
-});
+// Botões de tema
+document.getElementById('btnDark').onclick   = () => setTheme('dark');
+document.getElementById('btnLight').onclick  = () => setTheme('light');
+document.getElementById('btnBlue').onclick   = () => setTheme('blue');
+document.getElementById('btnPurple').onclick = () => setTheme('purple');
+document.getElementById('btnGold').onclick   = () => setTheme('gold');

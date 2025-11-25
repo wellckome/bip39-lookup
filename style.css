@@ -2,28 +2,19 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 /* Tema escuro */
-body.dark {
-  background: #111;
-  color: #eee;
-  font-family: 'Segoe UI', sans-serif;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-height: 100vh;
-  padding-top: 24px;
-}
+body.dark { background: #111; color: #eee; }
 
 /* Tema claro */
-body.light {
-  background: #f5f5f5;
-  color: #111;
-  font-family: 'Segoe UI', sans-serif;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-height: 100vh;
-  padding-top: 24px;
-}
+body.light { background: #f5f5f5; color: #111; }
+
+/* Tema azul neon */
+body.blue { background: #001f3f; color: #0ff; }
+
+/* Tema roxo neon */
+body.purple { background: #2e003e; color: #d500f9; }
+
+/* Tema dourado */
+body.gold { background: #222; color: #ffd700; }
 
 /* Bloco do topo */
 .top-block {
@@ -49,13 +40,6 @@ body.light {
   font-size: 18px;
   font-weight: bold;
   animation: pulseGlow 2s infinite alternate;
-  color: #fff;
-  text-shadow: 0 0 8px #0ff, 0 0 16px #09c, 0 0 32px #0ff;
-}
-
-body.light .frase-topo {
-  color: #222;
-  text-shadow: 0 0 6px #09c, 0 0 12px #0ff;
 }
 
 @keyframes pulseGlow {
@@ -75,29 +59,17 @@ body.light .frase-topo {
   transition: transform 0.3s ease;
   box-shadow: 0 10px 25px #00ffd5, 0 20px 50px #2abb66, 0 30px 80px #1f8a4d;
 }
-
-body.light .container {
-  background: #fff;
-  box-shadow: 0 10px 25px #aaa, 0 20px 50px #ccc;
-}
-
 .container:hover { transform: translateY(-5px); }
 
 /* Título */
 h1 {
   margin-bottom: 20px;
-  color: #0ff;
   text-shadow: 0 0 10px #0ff, 0 0 20px #09c;
   animation: glow 2s infinite alternate;
 }
 @keyframes glow {
   from { text-shadow: 0 0 10px #0ff; }
   to   { text-shadow: 0 0 20px #09c; }
-}
-
-body.light h1 {
-  color: #004488;
-  text-shadow: 0 0 8px #09c;
 }
 
 /* Input */
@@ -113,11 +85,6 @@ body.light h1 {
   transform: scale(1.02);
   outline: none;
 }
-body.light #numberInput {
-  background: #eee;
-  color: #111;
-  box-shadow: 0 0 8px #aaa;
-}
 
 /* Resultado */
 #result {
@@ -129,28 +96,14 @@ body.light #numberInput {
 }
 
 /* Resultado válido */
-#result.valid {
-  color: #00ffd5;
-  text-shadow: 0 0 12px #00ffd5, 0 0 24px #2abb66;
-}
-body.light #result.valid {
-  color: #006666;
-  text-shadow: 0 0 8px #00ffd5, 0 0 16px #2abb66;
-}
+#result.valid { color: #00ffd5; text-shadow: 0 0 12px #00ffd5, 0 0 24px #2abb66; }
 
 /* Resultado inválido */
-#result.invalid {
-  color: #ff4444;
-  text-shadow: 0 0 12px #ff4444, 0 0 24px #ff0000;
-}
-body.light #result.invalid {
-  color: #cc0000;
-  text-shadow: 0 0 8px #ff4444, 0 0 16px #ff0000;
-}
+#result.invalid { color: #ff4444; text-shadow: 0 0 12px #ff4444, 0 0 24px #ff0000; }
 
 /* Botões */
 button {
-  margin-top: 20px;
+  margin: 10px;
   background: linear-gradient(270deg, #0ff, #09c, #2abb66);
   background-size: 600% 600%;
   color: #111;
@@ -168,10 +121,7 @@ button {
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
-button:hover {
-  box-shadow: 0 0 12px #0ff;
-  transform: scale(1.05);
-}
+button:hover { box-shadow: 0 0 12px #0ff; transform: scale(1.05); }
 
 /* Responsividade */
 @media (max-width: 360px) {

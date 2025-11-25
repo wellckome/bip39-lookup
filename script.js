@@ -42,4 +42,17 @@ input.addEventListener('keydown', e => {
 toggleBtn.addEventListener('click', () => {
   body.classList.toggle('dark');
   body.classList.toggle('light');
+
+  function setTheme(theme) {
+  const body = document.body;
+  body.className = theme; // troca direto a classe do body
+}
+
+// exemplo: botões para alternar
+document.getElementById('btnDark').onclick   = () => setTheme('dark');
+document.getElementById('btnLight').onclick  = () => setTheme('light');
+document.getElementById('btnBlue').onclick   = () => setTheme('blue');
+document.getElementById('btnPurple').onclick = () => setTheme('purple');
+document.getElementById('btnGold').onclick   = () => setTheme('gold');
+
 });

@@ -31,15 +31,21 @@
     <!-- Resultado -->
     <div id="result">Digite um número e pressione Enter</div>
 
-    <!-- Contador de tentativas -->
+    <!-- Contador -->
     <div id="counter">Tentativas: 0</div>
 
+    <!-- Histórico -->
+    <div id="history"></div>
+
     <!-- Botão limpar -->
-    <button id="clearBtn" onclick="limpar()">Limpar tudo</button>
+    <button id="clearBtn">Limpar tudo</button>
   </div>
 
-  <!-- Script principal -->
+  <!-- Scripts: primeiro lista, depois lógica -->
   <script src="bip39.js"></script>
+  <script src="script.js"></script>
+
+  <!-- Service Worker -->
   <script>
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('service-worker.js')

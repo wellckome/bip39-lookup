@@ -5,18 +5,63 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BIP39 Lookup</title>
   <link rel="stylesheet" href="style.css">
+
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/png" sizes="192x192" href="images/icon-192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="images/icon-512.png">
+  <link rel="apple-touch-icon" sizes="192x192" href="images/icon-192.png">
+  <link rel="apple-touch-icon" sizes="512x512" href="images/icon-512.png">
 </head>
 <body>
-  <div class="container">
-    <h1>BIP39 Word Finder</h1>
-    <input id="numberInput" type="number" placeholder="Digite um número entre 1–2048" autofocus />
-    <div id="result">Digite um número e pressione Enter</div>
-    <div id="counter">Tentativas: 0</div>
-    <button id="clearBtn" onclick="limpar()">Limpar tudo</button>
+  <!-- Bloco do topo -->
+  <div class="top-block">
+    <div class="separator"></div>
+    <p class="frase-topo">Este projeto é para simples conferência, não armazena dados de pesquisa!</p>
+    <div class="separator"></div>
   </div>
 
-  <!-- Importa primeiro a lista, depois a lógica -->
+  <div class="container">
+    <!-- Logo -->
+    <img id="logo" src="images/icon-192.png" alt="Logo Bitcoin">
+    <h1>BIP39 Word Finder</h1>
+
+    <!-- Campo de entrada -->
+    <input id="numberInput" type="number" placeholder="Digite um número entre 1–2048" autofocus />
+
+    <!-- Resultado -->
+    <div id="result">Digite um número e pressione Enter</div>
+
+    <!-- Contador -->
+    <div id="counter">Tentativas: 0</div>
+
+    <!-- Histórico -->
+    <div id="history"></div>
+
+    <!-- Botão limpar -->
+    <button id="clearBtn">Limpar tudo</button>
+  </div>
+
+  <!-- Scripts: primeiro lista, depois lógica -->
   <script src="bip39.js"></script>
   <script src="script.js"></script>
+
+  <!-- Service Worker -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js')
+        .then(reg => {
+          console.log('✅ Service Worker registrado:', reg);
+          reg.onupdatefound = () => {
+            const newWorker = reg.installing;
+            newWorker.onstatechange = () => {
+              if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                alert('Nova versão disponível! Atualize a página para usar.');
+              }
+            };
+          };
+        })
+        .catch(err => console.log('❌ Falha ao registrar Service Worker:', err));
+    }
+  </script>
 </body>
 </html>

@@ -43,6 +43,7 @@ function limpar() {
   history.innerHTML = '';
 }
 
+// Eventos
 input.addEventListener('keydown', e => {
   if (e.key === 'Enter') {
     pesquisar();

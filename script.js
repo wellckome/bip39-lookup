@@ -1,13 +1,12 @@
 let tentativas = 0;
 
-const input   = document.getElementById('numberInput');
-const result  = document.getElementById('result');
-const clearBtn= document.getElementById('clearBtn');
-const counter = document.getElementById('counter');
-const history = document.getElementById('history');
-
 function pesquisar() {
-  const num = parseInt(input.value, 10);
+  const input   = document.getElementById("numberInput");
+  const result  = document.getElementById("result");
+  const counter = document.getElementById("counter");
+  const history = document.getElementById("history");
+  const num     = parseInt(input.value, 10);
+
   tentativas++;
   counter.textContent = `Tentativas: ${tentativas}`;
 
@@ -36,6 +35,11 @@ function pesquisar() {
 }
 
 function limpar() {
+  const input   = document.getElementById("numberInput");
+  const result  = document.getElementById("result");
+  const counter = document.getElementById("counter");
+  const history = document.getElementById("history");
+
   input.value = '';
   input.focus();
   result.textContent = 'Digite um número e pressione Enter';
@@ -45,10 +49,10 @@ function limpar() {
   history.innerHTML = '';
 }
 
-input.addEventListener('keydown', e => {
-  if (e.key === 'Enter') {
+document.getElementById("numberInput").addEventListener("keydown", function(event) {
+  if (event.key === "Enter") {
     pesquisar();
   }
 });
 
-clearBtn.addEventListener('click', limpar);
+document.getElementById("clearBtn").addEventListener("click", limpar);

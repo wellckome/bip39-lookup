@@ -1,7 +1,7 @@
 // bip39.js - BIP39 Lookup independente (direto no navegador)
 
 const words = [
-  null,  // placeholder para indexar de 1
+  null,
   "abandon",
   "ability",
   "able",

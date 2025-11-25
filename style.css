@@ -112,11 +112,15 @@ h1 {
 
 /* Resultado */
 #result {
-  margin-top: 18px; font-size: 22px; color: #00ffd5;
-  font-family: 'Courier New', monospace; font-weight: bold;
+  margin-top: 40px; /* desce mais dentro do container */
+  font-size: 22px;
+  color: #00ffd5;
+  font-family: 'Courier New', monospace;
+  font-weight: bold;
   text-shadow: 0 0 12px #00ffd5, 0 0 24px #2abb66, 0 0 48px #1f8a4d, 0 0 72px #00ffd5;
   transition: text-shadow 0.3s ease;
 }
+
 
 
 @keyframes gradientShift {

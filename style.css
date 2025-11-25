@@ -139,3 +139,9 @@ button:hover { box-shadow: 0 0 12px #0ff; transform: scale(1.05); }
 @media (max-width: 360px) {
   .container { width: 95%; }
 }
+
+/* Mensagem padrão no tema claro */
+body.light #result {
+  color: #fff; /* texto branco */
+  text-shadow: 0 0 8px #09c, 0 0 16px #0ff; /* mantém efeito neon */
+}

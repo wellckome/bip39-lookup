@@ -13,18 +13,19 @@ function pesquisar() {
   const counter = document.getElementById("counter");
   const num = parseInt(input.value, 10);
 
-  tentativas++; // incrementa contador
+  tentativas++;
   counter.textContent = `Tentativas: ${tentativas}`;
 
-  if (num >= 1 && num <= bip39Words.length) {
+  if (!isNaN(num) && num >= 1 && num <= bip39Words.length) {
     result.textContent = bip39Words[num - 1];
     result.style.color = "limegreen"; // ✅ verde quando válido
-    input.value = ''; // limpa o campo
   } else {
     result.textContent = "Número inválido. Digite entre 1 e 2048.";
     result.style.color = "red"; // ❌ vermelho quando inválido
-    input.value = ''; // limpa também quando inválido
   }
+
+  // 🔑 limpa SEMPRE o campo após a tentativa
+  input.value = '';
 }
 
 function limpar() {
@@ -34,7 +35,7 @@ function limpar() {
   input.value = '';
   result.textContent = 'Digite um número e pressione Enter';
   result.style.color = "#eee"; // volta ao padrão
-  tentativas = 0; // zera contador
+  tentativas = 0;
   counter.textContent = "Tentativas: 0";
 }
 

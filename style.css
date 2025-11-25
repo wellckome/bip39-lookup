@@ -118,16 +118,7 @@ h1 {
   transition: text-shadow 0.3s ease;
 }
 
-/* Botão com gradiente animado */
-#clearBtn {
-  position: absolute; bottom: 15px; left: 50%;
-  transform: translateX(-50%);
-  background: linear-gradient(270deg, #0ff, #09c, #2abb66);
-  background-size: 600% 600%;
-  color: #111; border: none; padding: 8px 16px;
-  border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 14px;
-  animation: gradientShift 6s ease infinite; transition: 0.3s ease;
-}
+
 @keyframes gradientShift {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
@@ -135,7 +126,6 @@ h1 {
 }
 
 
-#clearBtn:hover { box-shadow: 0 0 12px #0ff; transform: translateX(-50%) scale(1.05); }
 
 /* Responsividade */
 @media (max-width: 360px) { #logo { width: 80px; height: 80px; } }

@@ -24,13 +24,11 @@ function pesquisar() {
     result.style.color = "red";
   }
 
-  // adiciona ao histórico
   const item = document.createElement("div");
   item.textContent = mensagem;
   item.classList.add(classe);
   history.appendChild(item);
 
-  // limpa e volta foco
   input.value = '';
   input.focus();
 }

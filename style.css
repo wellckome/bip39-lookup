@@ -133,6 +133,16 @@ h1 {
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
+
+/* Contador de tentativas */
+#counter {
+  margin-top: 10px;
+  font-size: 16px;
+  color: #ccc;
+  font-family: 'Segoe UI', sans-serif;
+  text-shadow: 0 0 6px #0ff, 0 0 12px #09c;
+}
+
 #clearBtn:hover { box-shadow: 0 0 12px #0ff; transform: translateX(-50%) scale(1.05); }
 
 /* Responsividade */

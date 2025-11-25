@@ -1,33 +1,24 @@
 /* Reset básico */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
-/* Configuração base para todos os temas */
+/* Configuração base */
 body {
   font-family: 'Segoe UI', sans-serif;
   display: flex;
   flex-direction: column;   /* organiza em coluna */
-  justify-content: flex-start; /* começa do topo */
-  align-items: center;      /* centraliza horizontalmente */
+  justify-content: flex-start;
+  align-items: center;
   min-height: 100vh;
   transition: background 0.3s ease, color 0.3s ease;
-  padding-top: 24px;        /* espaço no topo */
+  padding-top: 24px;
 }
 
-
-/* Tema escuro */
-body.dark { background: #111; color: #eee; }
-
-/* Tema claro */
-body.light { background: #f5f5f5; color: #111; }
-
-/* Tema azul neon */
-body.blue { background: #001f3f; color: #0ff; }
-
-/* Tema roxo neon */
+/* Temas */
+body.dark   { background: #111; color: #eee; }
+body.light  { background: #f5f5f5; color: #111; }
+body.blue   { background: #001f3f; color: #0ff; }
 body.purple { background: #2e003e; color: #d500f9; }
-
-/* Tema dourado */
-body.gold { background: #222; color: #ffd700; }
+body.gold   { background: #222; color: #ffd700; }
 
 /* Bloco do topo */
 .top-block {
@@ -60,7 +51,7 @@ body.gold { background: #222; color: #ffd700; }
   to   { text-shadow: 0 0 16px #0ff, 0 0 32px #09c, 0 0 48px #0ff; }
 }
 
-/* Container centralizado */
+/* Container */
 .container {
   text-align: center;
   background: #1a1a1a;
@@ -113,9 +104,15 @@ h1 {
 /* Resultado inválido */
 #result.invalid { color: #ff4444; text-shadow: 0 0 12px #ff4444, 0 0 24px #ff0000; }
 
-/* Botões */
+/* Mensagem padrão no tema claro */
+body.light #result {
+  color: #fff;
+  text-shadow: 0 0 8px #09c, 0 0 16px #0ff;
+}
+
+/* Botão limpar */
 button {
-  margin: 10px;
+  margin-top: 20px;
   background: linear-gradient(270deg, #0ff, #09c, #2abb66);
   background-size: 600% 600%;
   color: #111;
@@ -135,26 +132,15 @@ button {
 }
 button:hover { box-shadow: 0 0 12px #0ff; transform: scale(1.05); }
 
-/* Responsividade */
-@media (max-width: 360px) {
-  .container { width: 95%; }
-}
-
-/* Mensagem padrão no tema claro */
-body.light #result {
-  color: #fff; /* texto branco */
-  text-shadow: 0 0 8px #09c, 0 0 16px #0ff; /* mantém efeito neon */
-}
+/* Seletor de tema (fora do container) */
 .theme-selector {
-  margin-top: 20px;
+  margin-top: 40px;
   text-align: center;
 }
-
 label {
   margin-right: 8px;
   font-weight: bold;
 }
-
 select {
   padding: 6px 12px;
   border-radius: 6px;
@@ -164,9 +150,13 @@ select {
   background: #f5f5f5;
   color: #111;
 }
-
 body.dark select {
   background: #222;
   color: #eee;
   border: 1px solid #555;
+}
+
+/* Responsividade */
+@media (max-width: 360px) {
+  .container { width: 95%; }
 }

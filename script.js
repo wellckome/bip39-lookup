@@ -5,14 +5,20 @@ const bip39Words = [
   // ... continue até "zoo" (ou use a lista em português)
 ];
 
+let tentativas = 0;
+
 function pesquisar() {
   const input = document.getElementById("numberInput");
   const result = document.getElementById("result");
+  const counter = document.getElementById("counter");
   const num = parseInt(input.value, 10);
+
+  tentativas++; // incrementa contador
+  counter.textContent = `Tentativas: ${tentativas}`;
 
   if (num >= 1 && num <= bip39Words.length) {
     result.textContent = bip39Words[num - 1];
-    result.style.color = "green"; // ✅ verde quando válido
+    result.style.color = "limegreen"; // ✅ verde quando válido
     input.value = ''; // limpa o campo
   } else {
     result.textContent = "Número inválido. Digite entre 1 e 2048.";
@@ -24,9 +30,12 @@ function pesquisar() {
 function limpar() {
   const input = document.getElementById("numberInput");
   const result = document.getElementById("result");
+  const counter = document.getElementById("counter");
   input.value = '';
   result.textContent = 'Digite um número e pressione Enter';
-  result.style.color = "black"; // volta ao padrão
+  result.style.color = "#eee"; // volta ao padrão
+  tentativas = 0; // zera contador
+  counter.textContent = "Tentativas: 0";
 }
 
 // 🔑 Captura a tecla Enter no input

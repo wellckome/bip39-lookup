@@ -1,6 +1,15 @@
 const input   = document.getElementById('numberInput');
 const result  = document.getElementById('result');
 
+
+const themeSelect = document.getElementById('themeSelect');
+
+themeSelect.addEventListener('change', () => {
+  const selectedTheme = themeSelect.value;
+  document.body.className = selectedTheme;
+});
+
+
 // Função de pesquisa
 function pesquisar() {
   const num = parseInt(input.value, 10);

@@ -6,17 +6,27 @@ const bip39Words = [
 ];
 
 function pesquisar() {
-  const num = parseInt(document.getElementById("numberInput").value, 10);
+  const input = document.getElementById("numberInput");
+  const result = document.getElementById("result");
+  const num = parseInt(input.value, 10);
+
   if (num >= 1 && num <= bip39Words.length) {
-    document.getElementById("result").textContent = bip39Words[num - 1];
+    result.textContent = bip39Words[num - 1];
+    result.style.color = "green"; // ✅ verde quando válido
+    input.value = ''; // limpa o campo
   } else {
-    document.getElementById("result").textContent = "Número inválido. Digite entre 1 e 2048.";
+    result.textContent = "Número inválido. Digite entre 1 e 2048.";
+    result.style.color = "red"; // ❌ vermelho quando inválido
+    input.value = ''; // limpa também quando inválido
   }
 }
 
 function limpar() {
-  document.getElementById("numberInput").value = '';
-  document.getElementById("result").textContent = 'Digite um número e pressione Enter';
+  const input = document.getElementById("numberInput");
+  const result = document.getElementById("result");
+  input.value = '';
+  result.textContent = 'Digite um número e pressione Enter';
+  result.style.color = "black"; // volta ao padrão
 }
 
 // 🔑 Captura a tecla Enter no input

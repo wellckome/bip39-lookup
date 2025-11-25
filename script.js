@@ -8,7 +8,7 @@ function pesquisar() {
     result.textContent = `${num} → ${words[num]}`;
     result.style.color = "limegreen";
   } else {
-    result.textContent = "Número inválido. Digite entre 1 e 2048.";
+    result.textContent = "Número inválido.";
     result.style.color = "red";
   }
 

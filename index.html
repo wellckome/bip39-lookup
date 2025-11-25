@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BIP39 Lookup</title>
+  <title>BIP39 Lookup - Tema Claro/Escuro</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="dark">
   <!-- Bloco do topo -->
   <div class="top-block">
     <div class="separator"></div>
@@ -23,14 +23,25 @@
     <!-- Resultado -->
     <div id="result">Digite um número e pressione Enter</div>
 
-   
+    <!-- Botão limpar -->
+    <button onclick="limpar()">Limpar tudo</button>
 
-    <!-- Histórico -->
-    <div id="history"></div>
+    <!-- Botão alternar tema -->
+    <button id="toggleTheme">Alternar tema</button>
+  </div>
 
-    
   <!-- Scripts -->
   <script src="bip39.js"></script>
   <script src="script.js"></script>
+  <script>
+    // Alternar tema claro/escuro
+    const toggleBtn = document.getElementById('toggleTheme');
+    const body = document.body;
+
+    toggleBtn.addEventListener('click', () => {
+      body.classList.toggle('dark');
+      body.classList.toggle('light');
+    });
+  </script>
 </body>
 </html>

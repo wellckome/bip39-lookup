@@ -5,32 +5,25 @@
 body.dark {
   background: #111;
   color: #eee;
+  font-family: 'Segoe UI', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding-top: 24px;
 }
 
 /* Tema claro */
 body.light {
   background: #f5f5f5;
   color: #111;
+  font-family: 'Segoe UI', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding-top: 24px;
 }
-
-/* Tema azul neon */
-body.blue {
-  background: #001f3f;
-  color: #0ff;
-}
-
-/* Tema roxo neon */
-body.purple {
-  background: #2e003e;
-  color: #d500f9;
-}
-
-/* Tema dourado */
-body.gold {
-  background: #222;
-  color: #ffd700;
-}
-
 
 /* Bloco do topo */
 .top-block {

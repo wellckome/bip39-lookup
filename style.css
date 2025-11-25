@@ -5,11 +5,14 @@
 body {
   font-family: 'Segoe UI', sans-serif;
   display: flex;
-  justify-content: center;   /* centraliza horizontalmente */
-  align-items: center;       /* centraliza verticalmente */
+  flex-direction: column;   /* organiza em coluna */
+  justify-content: flex-start; /* começa do topo */
+  align-items: center;      /* centraliza horizontalmente */
   min-height: 100vh;
   transition: background 0.3s ease, color 0.3s ease;
+  padding-top: 24px;        /* espaço no topo */
 }
+
 
 /* Tema escuro */
 body.dark { background: #111; color: #eee; }

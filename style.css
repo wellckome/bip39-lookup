@@ -2,10 +2,29 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 /* Tema escuro */
-body.dark { background: #111; color: #eee; }
+body.dark {
+  background: #111;
+  color: #eee;
+  font-family: 'Segoe UI', sans-serif;
+  display: flex;
+  justify-content: center;   /* centraliza horizontalmente */
+  align-items: flex-start;   /* mantém no topo, mas centralizado */
+  min-height: 100vh;
+  padding-top: 24px;
+}
 
 /* Tema claro */
-body.light { background: #f5f5f5; color: #111; }
+body.light {
+  background: #f5f5f5;
+  color: #111;
+  font-family: 'Segoe UI', sans-serif;
+  display: flex;
+  justify-content: center;   /* centraliza horizontalmente */
+  align-items: flex-start;   /* mantém no topo, mas centralizado */
+  min-height: 100vh;
+  padding-top: 24px;
+}
+
 
 /* Tema azul neon */
 body.blue { background: #001f3f; color: #0ff; }

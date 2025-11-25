@@ -23,4 +23,18 @@ function pesquisar() {
 function limpar() {
   input.value = '';
   input.focus();
-  result.textContent
+  result.textContent = 'Digite um número e pressione Enter';
+  result.classList.remove("valid", "invalid");
+}
+
+// Evento Enter
+input.addEventListener('keydown', e => {
+  if (e.key === 'Enter') {
+    pesquisar();
+  }
+});
+
+// Seletor de tema
+themeSelect.addEventListener('change', () => {
+  document.body.className = themeSelect.value;
+});

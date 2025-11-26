@@ -5,7 +5,7 @@
 body {
   font-family: 'Segoe UI', sans-serif;
   display: flex;
-  flex-direction: column;   /* organiza em coluna */
+  flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   min-height: 100vh;
@@ -13,12 +13,11 @@ body {
   padding-top: 24px;
 }
 
-/* Temas */
-body.dark   { background: #111; color: #eee; }
-body.light  { background: #f5f5f5; color: #111; }
-body.blue   { background: #001f3f; color: #0ff; }
-body.purple { background: #2e003e; color: #d500f9; }
-body.gold   { background: #222; color: #ffd700; }
+/* Tema único: escuro */
+body {
+  background: #111;
+  color: #eee;
+}
 
 /* Bloco do topo */
 .top-block {
@@ -75,42 +74,44 @@ h1 {
   to   { text-shadow: 0 0 20px #09c; }
 }
 
-/* Input */
-#numberInput {
-  width: 100%; padding: 10px; font-size: 16px;
-  border: none; border-radius: 8px; text-align: center;
-  background: #222; color: #0ff;
+/* Inputs */
+#numberInput, #wordInput {
+  width: 100%; 
+  padding: 10px; 
+  font-size: 16px;
+  border: none; 
+  border-radius: 8px; 
+  text-align: center;
+  background: #222; 
+  color: #0ff;
   box-shadow: 0 0 8px #0ff, 0 0 15px #09c;
   transition: box-shadow 0.3s ease, transform 0.2s ease;
+  margin-top: 30px;
 }
-#numberInput:focus {
+#numberInput:focus, #wordInput:focus {
   box-shadow: 0 0 15px #0ff, 0 0 25px #09c;
   transform: scale(1.02);
   outline: none;
 }
 
-/* Resultado */
-#result {
+/* Resultados */
+#result, #wordResult {
   margin-top: 40px;
   font-size: 22px;
   font-family: 'Courier New', monospace;
   font-weight: bold;
   transition: text-shadow 0.3s ease, color 0.3s ease;
 }
-
-/* Resultado válido */
-#result.valid { color: #00ffd5; text-shadow: 0 0 12px #00ffd5, 0 0 24px #2abb66; }
-
-/* Resultado inválido */
-#result.invalid { color: #ff4444; text-shadow: 0 0 12px #ff4444, 0 0 24px #ff0000; }
-
-/* Mensagem padrão no tema claro */
-body.light #result {
-  color: #fff;
-  text-shadow: 0 0 8px #09c, 0 0 16px #0ff;
+#result.valid, #wordResult.valid { 
+  color: #00ffd5; 
+  text-shadow: 0 0 12px #00ffd5, 0 0 24px #2abb66; 
+}
+#result.invalid, #wordResult.invalid { 
+  color: #ff4444; 
+  text-shadow: 0 0 12px #ff4444, 0 0 24px #ff0000; 
 }
 
-/* Botão limpar */
+/* Botão */
 button {
   margin-top: 20px;
   background: linear-gradient(270deg, #0ff, #09c, #2abb66);
@@ -132,31 +133,16 @@ button {
 }
 button:hover { box-shadow: 0 0 12px #0ff; transform: scale(1.05); }
 
-/* Seletor de tema (fora do container) */
-.theme-selector {
-  margin-top: 40px;
-  text-align: center;
-}
-label {
-  margin-right: 8px;
-  font-weight: bold;
-}
-select {
-  padding: 6px 12px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  font-size: 14px;
-  cursor: pointer;
-  background: #f5f5f5;
-  color: #111;
-}
-body.dark select {
-  background: #222;
-  color: #eee;
-  border: 1px solid #555;
-}
-
 /* Responsividade */
-@media (max-width: 360px) {
-  .container { width: 95%; }
+@media (max-width: 768px) {
+  .container {
+    width: 90%;
+    padding: 20px;
+  }
+  h1 {
+    font-size: 24px;
+  }
+  #result, #wordResult {
+    font-size: 18px;
+  }
 }

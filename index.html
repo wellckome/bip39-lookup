@@ -14,32 +14,35 @@
     <div class="separator"></div>
   </div>
 
-  <!-- Container central -->
-  <div class="container">
-    <h1>BIP39 Word Finder</h1>
+ <div class="container">
+  <h1>BIP39 Word Finder</h1>
 
-    <!-- Campo de entrada -->
-    <input id="numberInput" type="number" placeholder="Digite um número entre 1–2048" autofocus />
+  <!-- Grupo: pesquisa por número -->
+  <section class="field">
+    <h2 class="field-title">Pesquisa por número</h2>
+    <label for="numberInput" class="field-label">Número (1–2048)</label>
+    <input id="numberInput" type="number" class="input" placeholder="Digite um número entre 1–2048" />
+    <div class="actions">
+      <button class="btn" id="btnNumberSearch">Pesquisar</button>
+      <button class="btn btn-outline" id="btnClearNumber">Limpar</button>
+    </div>
+    <div id="result" class="output">Digite um número e pressione Enter</div>
+  </section>
 
-    <!-- Resultado -->
-    <div id="result">Digite um número e pressione Enter</div>
-
-    <!-- Botão limpar -->
-    <button onclick="limpar()">Limpar tudo</button>
-  </div>
-
-  <!-- Seletor de tema fora do container -->
-  <div class="theme-selector">
-    <label for="themeSelect">Escolha o tema:</label>
-    <select id="themeSelect">
-      <option value="dark">Escuro</option>
-      <option value="light">Claro</option>
-      <option value="blue">Azul Neon</option>
-      <option value="purple">Roxo Neon</option>
-      <option value="gold">Dourado</option>
-    </select>
-  </div>
-
+  <!-- Grupo: pesquisa por palavra -->
+  <section class="field">
+    <h2 class="field-title">Pesquisa por palavra</h2>
+    <label for="wordInput" class="field-label">Palavra BIP39</label>
+    <input id="wordInput" type="text" class="input" placeholder="Digite uma palavra BIP39" />
+    <div class="actions">
+      <button class="btn" id="btnWordSearch">Pesquisar</button>
+      <button class="btn btn-outline" id="btnClearWord">Limpar</button>
+    </div>
+    <div id="wordResult" class="output">Digite uma palavra e pressione Enter</div>
+  </section>
+</div>
+    
+ 
   <!-- Scripts -->
   <script src="bip39.js"></script>
   <script src="script.js"></script>

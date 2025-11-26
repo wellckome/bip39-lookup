@@ -6,7 +6,15 @@ function mostrarNumero() {
   obs.style.display = 'block';
   obs.innerHTML =
     "<p>⚡ Na pesquisa por número, você vai digitar o número correspondente à sua seed phrase para restaurar sua carteira.</p>" +
-    "<p>⚡ Ou seja, na prática você guardará uma série de números que não te dá correspondência com seed phrase; guarde-as como milhar da loteria.</p>";
+    "<p>⚡ Ou seja, na prática você guardará uma série de números que não te dá correspondência com seed phrase,  guarde-as com segurança.</p>";
+
+
+  // ✅ limpa resultados anteriores
+  document.getElementById('result').textContent = '';
+  document.getElementById('wordResult').textContent = '';
+
+  // ✅ coloca o foco no campo de número
+  document.getElementById('numberInput').focus();
 }
 
 function mostrarPalavra() {
@@ -15,8 +23,16 @@ function mostrarPalavra() {
   const obs = document.getElementById('observacao');
   obs.style.display = 'block';
   obs.innerHTML =
-    "<p>⚡ Na pesquisa por palavra, você vai digitar a palavra correspondente à sua seed phrase para fazer backup dos números.</p>" +
-    "<p>⚡ Ou seja, na prática você guardará uma série de números que não te dá correspondência com seed phrase; guarde-as como milhar da loteria.</p>";
+   "<p>⚡ Na pesquisa por palavra, você vai digitar a palavra correspondente à sua seed-phrase para fazer backup dos números.</p>" +
+    "<p>⚡ Ou seja, na prática você guardará uma série de números que não te dá correspondência com seed-phrase , guarde-as como milhar da loteria.</p>" +
+    "<p>⚡ Más lembre-se que o ideal e ter sempre uma hidden wallet com uma passphrase.</p>";
+
+  // ✅ limpa resultados anteriores
+  document.getElementById('result').textContent = '';
+  document.getElementById('wordResult').textContent = '';
+
+  // ✅ coloca o foco no campo de palavra
+  document.getElementById('wordInput').focus();
 }
 
 // Seletores

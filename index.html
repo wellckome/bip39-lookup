@@ -1,54 +1,42 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BIP39 Lookup</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
-  <div class="top-block">
-    <div class="separator"></div>
-    <p class="frase-topo">Ferramenta para consulta da lista BIP39</p>
-    <div class="separator"></div>
-  </div>
 
+<body>
   <div class="container">
     <h1>BIP39 Lookup</h1>
 
-    <!-- Botões para alternar pesquisa -->
     <div class="switch">
-      <button onclick="mostrarNumero()">Pesquisar por número</button>
-      <button onclick="mostrarPalavra()">Pesquisar por palavra</button>
+      <button id="btnNumero">Pesquisar por número</button>
+      <button id="btnPalavra">Pesquisar por palavra</button>
+
+
     </div>
 
-    <!-- Bloco número -->
     <div id="blocoNumero">
-      <input id="numberInput" 
-             type="number" 
-             placeholder="Digite um número entre 1–2048" 
-             autocomplete="off" />
-      <div id="result">Digite um número e pressione Enter</div>
+      <input id="numberInput" type="number" placeholder="Digite um número entre 1–2048" autocomplete="off" />
+      <div id="result"></div>
     </div>
 
-    <!-- Bloco palavra -->
     <div id="blocoPalavra" style="display:none;">
-      <input id="wordInput" 
-             type="text" 
-             placeholder="Digite uma palavra BIP39" 
-             autocomplete="off" 
-             autocorrect="off" 
-             autocapitalize="none" 
-             spellcheck="false" />
-      <div id="wordResult">Digite uma palavra e pressione Enter</div>
+      <input id="wordInput" type="text" placeholder="Digite uma palavra BIP39" autocomplete="off" />
+      <div id="wordResult"></div>
     </div>
 
-    <!-- Observação dinâmica -->
-    <div id="observacao" style="display:none;"></div>
+    <!-- Observações -->
+    <div id="observacao" class="avisos"></div>
   </div>
 
-  <!-- Scripts externos -->
+  <!-- Scripts -->
   <script src="words.js" defer></script>
-  <script src="script.js" defer></script>
+  <script type="module" src="script.js"></script>
+
 </body>
+
 </html>

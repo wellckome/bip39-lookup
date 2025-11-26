@@ -5,8 +5,16 @@ function mostrarNumero() {
   const obs = document.getElementById('observacao');
   obs.style.display = 'block';
   obs.innerHTML =
-    "<p>⚡ Na pesquisa por número, você vai digitar o número correspondente à sua seed phrase para restaurar sua carteira.</p>" +
-    "<p>⚡ Ou seja, na prática você guardará uma série de números que não te dá correspondência com seed phrase,  guarde-as com segurança.</p>";
+
+   "<p>⚡ Na pesquisa por número, você vai digitar o número correspondente à sua Seed-Phrase para restaurar sua carteira.</p>" +
+"<p>⚡ Supondo que já tenha anotado em um lugar seguro seus numeros correspondentes.</p>" +
+"<p>⚡ Ou seja, na prática você pegará seus números e restaurará suas  Seed-Phrase (Wallet) .</p>"+
+"<p>⚡ Más lembre-se que o ideal e ter sempre uma Hard Wallet com uma PassPhrase  segura e complexa.</p>"+
+"<p>⚡ PassPhrase você só terá em Cold Wallet ou Air Gaps.</p>"+
+"<p>⚡ Caso não tenha os números , usa a pesquisa por palavras e cria sua lista.</p>";
+
+
+
 
 
   // ✅ limpa resultados anteriores
@@ -23,10 +31,13 @@ function mostrarPalavra() {
   const obs = document.getElementById('observacao');
   obs.style.display = 'block';
   obs.innerHTML =
-   "<p>⚡ Na pesquisa por palavra, você vai digitar a palavra correspondente à sua seed-phrase para fazer backup dos números.</p>" +
-    "<p>⚡ Ou seja, na prática você guardará uma série de números que não te dá correspondência com seed-phrase , guarde-as como milhar da loteria.</p>" +
-    "<p>⚡ Más lembre-se que o ideal e ter sempre uma hidden wallet com uma passphrase.</p>";
-
+    "<p>⚡ Na pesquisa por palavra, você vai digitar a palavra correspondente à sua Seed-Phrase para fazer backup dos números.</p>" +
+    "<p>⚡ Ou seja, na prática você guardará uma série de números que não te dá correspondência com Seed-Phrase.</p>" +
+    "<p>⚡ Más lembre-se que o ideal e ter sempre uma Hard Wallet com uma PassPhrase  e complexa.</p>" +
+    "<p>⚡ PassPhrase significa que além das suas Seed-Phrase você terá uma camada de segurança extra.</p>" +
+    "<p>⚡ Lembrando que a PassPhrase será uma palavra de sua escolha e que não consta no Bip39.</p>" +
+    "<p>⚡ Exemplos: time de coração , uma frase ou qualquer palavra , desde que nunca esqueça.</p>" +
+    "<p>⚡ Uma passphrase pode conter até 100 caracteres. É importante que a passphrase seja longa e complexa.</p>";
   // ✅ limpa resultados anteriores
   document.getElementById('result').textContent = '';
   document.getElementById('wordResult').textContent = '';

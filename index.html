@@ -1,42 +1,44 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BIP39 Lookup</title>
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+  <div class="top-block">
+    <div class="separator"></div>
+    <p class="frase-topo">Este projeto é para simples conferência, não armazena dados de pesquisa!</p>
+    <div class="separator"></div>
+  </div>
   <div class="container">
     <h1>BIP39 Lookup</h1>
 
-    <div class="switch">
+    <!-- Botões -->
+    <div>
       <button id="btnNumero">Pesquisar por número</button>
       <button id="btnPalavra">Pesquisar por palavra</button>
-
-
     </div>
 
-    <div id="blocoNumero">
+    <!-- Bloco de pesquisa por número -->
+    <div id="blocoNumero" style="display:none;">
       <input id="numberInput" type="number" placeholder="Digite um número entre 1–2048" autocomplete="off" />
       <div id="result"></div>
     </div>
 
+    <!-- Bloco de pesquisa por palavra -->
     <div id="blocoPalavra" style="display:none;">
       <input id="wordInput" type="text" placeholder="Digite uma palavra BIP39" autocomplete="off" />
       <div id="wordResult"></div>
     </div>
 
-    <!-- Observações -->
-    <div id="observacao" class="avisos"></div>
+    <!-- Avisos -->
+    <div id="observacao"></div>
   </div>
 
   <!-- Scripts -->
   <script src="words.js" defer></script>
   <script type="module" src="script.js"></script>
-
 </body>
-
 </html>

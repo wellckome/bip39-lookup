@@ -1,40 +1,63 @@
 import { avisosNumero, avisosPalavra } from './avisos.js';
 
+// --- Mostrar blocos e avisos ---
+function mostrarNumero() {
+  const container = document.querySelector('.container');
+  const obs = document.getElementById('observacao');
 
-// Alternância entre blocos e observação
-export function mostrarNumero() {
   document.getElementById('blocoNumero').style.display = 'block';
   document.getElementById('blocoPalavra').style.display = 'none';
 
-  const obs = document.getElementById('observacao');
   obs.style.display = 'block';
   obs.innerHTML = avisosNumero;
 
-  // limpa resultados anteriores
+  document.getElementById('result').style.display = 'block';
+  document.getElementById('wordResult').style.display = 'none';
   document.getElementById('result').textContent = '';
-  document.getElementById('wordResult').textContent = '';
 
-  // coloca o foco no campo de número
   document.getElementById('numberInput').focus();
+
+  // ✅ aumenta container
+  container.style.maxWidth = '850px';
+
+  // Timer para esconder aviso e reduzir container
+  setTimeout(() => {
+    obs.style.display = 'none';
+    container.style.maxWidth = '650px';
+  }, 10000);
 }
 
-export function mostrarPalavra() {
+function mostrarPalavra() {
+  const container = document.querySelector('.container');
+  const obs = document.getElementById('observacao');
+
   document.getElementById('blocoNumero').style.display = 'none';
   document.getElementById('blocoPalavra').style.display = 'block';
 
-  const obs = document.getElementById('observacao');
   obs.style.display = 'block';
   obs.innerHTML = avisosPalavra;
 
-  // limpa resultados anteriores
-  document.getElementById('result').textContent = '';
+  document.getElementById('wordResult').style.display = 'block';
+  document.getElementById('result').style.display = 'none';
   document.getElementById('wordResult').textContent = '';
 
-  // coloca o foco no campo de palavra
   document.getElementById('wordInput').focus();
+
+  // ✅ aumenta container
+  container.style.maxWidth = '850px';
+
+  // Timer para esconder aviso e reduzir container
+  setTimeout(() => {
+    obs.style.display = 'none';
+    container.style.maxWidth = '650px';
+  }, 10000);
 }
 
-// Seletores
+// --- Eventos dos botões ---
+document.getElementById('btnNumero').addEventListener('click', mostrarNumero);
+document.getElementById('btnPalavra').addEventListener('click', mostrarPalavra);
+
+// --- Pesquisa por número ---
 const input = document.getElementById('numberInput');
 const result = document.getElementById('result');
 const wordInput = document.getElementById('wordInput');
@@ -49,13 +72,12 @@ function pesquisar() {
   if (!Number.isInteger(num) || num < 1 || num > MAX) {
     result.textContent = "Número inválido. Digite entre 1 e 2048.";
     result.classList.add("invalid");
-
     input.value = '';
     input.focus();
     return;
   }
 
-  const word = words[num]; // words[1] = abandon
+  const word = words[num]; // words.js precisa estar carregado
   if (word) {
     result.textContent = `${num} → ${word}`;
     result.classList.add("valid");
@@ -68,6 +90,7 @@ function pesquisar() {
   input.focus();
 }
 
+// --- Pesquisa por palavra ---
 function pesquisarPalavra() {
   const palavra = wordInput.value.trim().toLowerCase();
   wordResult.classList.remove("valid", "invalid");
@@ -75,7 +98,6 @@ function pesquisarPalavra() {
   if (!palavra) {
     wordResult.textContent = "Digite uma palavra.";
     wordResult.classList.add("invalid");
-
     wordInput.value = '';
     wordInput.focus();
     return;
@@ -94,7 +116,7 @@ function pesquisarPalavra() {
   wordInput.focus();
 }
 
-// Eventos Enter
+// --- Eventos Enter ---
 input.addEventListener('keydown', e => {
   if (e.key === 'Enter') pesquisar();
 });
@@ -102,7 +124,3 @@ input.addEventListener('keydown', e => {
 wordInput.addEventListener('keydown', e => {
   if (e.key === 'Enter') pesquisarPalavra();
 });
-// no final do script.js
-document.getElementById('btnNumero').addEventListener('click', mostrarNumero);
-document.getElementById('btnPalavra').addEventListener('click', mostrarPalavra);
-

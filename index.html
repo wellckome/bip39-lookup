@@ -14,31 +14,36 @@
   </div>
 
   <div class="container">
-    <h1>BIP39 Lookup</h1>
+  <h1>BIP39 Lookup</h1>
 
-    <!-- Botões para alternar pesquisa -->
-    <div class="switch">
-      <button onclick="mostrarNumero()">Pesquisar por número</button>
-      <button onclick="mostrarPalavra()">Pesquisar por palavra</button>
-    </div>
-
-    <!-- Bloco número -->
-    <div id="blocoNumero">
-      <input id="numberInput" type="number" placeholder="Digite um número entre 1–2048" />
-      <div id="result">Digite um número e pressione Enter</div>
-    </div>
-
-    <!-- Bloco palavra -->
-    <div id="blocoPalavra" style="display:none;">
-      <input id="wordInput" type="text" placeholder="Digite uma palavra BIP39" />
-      <div id="wordResult">Digite uma palavra e pressione Enter</div>
-    </div>
-
-    <!-- Observação dinâmica -->
-    <div id="observacao" style="margin-top:20px; font-size:14px; color:#0ff; display:none;">
-      <!-- Texto será inserido via JS -->
-    </div>
+  <!-- Botões para alternar pesquisa -->
+  <div class="switch">
+    <button onclick="mostrarNumero()">Pesquisar por número</button>
+    <button onclick="mostrarPalavra()">Pesquisar por palavra</button>
   </div>
+
+  <!-- Bloco número -->
+  <div id="blocoNumero">
+    <input id="numberInput" type="number" placeholder="Digite um número entre 1–2048" />
+    <div id="result">Digite um número e pressione Enter</div>
+  </div>
+
+  <!-- Bloco palavra -->
+  <div id="blocoPalavra" style="display:none;">
+    <input id="wordInput" type="text" placeholder="Digite uma palavra BIP39" />
+    <div id="wordResult">Digite uma palavra e pressione Enter</div>
+  </div>
+
+  <!-- Observação dinâmica -->
+  <div id="observacao">
+    <p>⚡ Na pesquisa por número, você vai digitar o número correspondente à sua seed phrase para restaurar sua carteira.</p>
+   <br>
+    <p>⚡ Ou seja, na prática você guardará uma série de números que não te dá correspondência com seed phrase, guarde-as como milhar da loteria.</p>
+    <br>
+    <p>⚡ Lembre-se , o ideal e que você tenha uma hidden wallet , pois sua passphase está fora do bip39.</p>
+  </div>
+</div>
+
 
   <script>
     // Alternância entre blocos e observação
@@ -51,12 +56,14 @@
     }
 
     function mostrarPalavra() {
-      document.getElementById('blocoNumero').style.display = 'none';
-      document.getElementById('blocoPalavra').style.display = 'block';
-      document.getElementById('observacao').style.display = 'block';
-      document.getElementById('observacao').textContent =
-        "⚡ Na pesquisa por palavra, você vai digitar a palavra correspondente à sua seed phrase para fazer backup dos números.";
-    }
+  document.getElementById('blocoNumero').style.display = 'none';
+  document.getElementById('blocoPalavra').style.display = 'block';
+  document.getElementById('observacao').style.display = 'block';
+  document.getElementById('observacao').innerHTML =
+    "<p>⚡ Na pesquisa por palavra, você vai digitar a palavra correspondente à sua seed phrase para fazer backup dos números.</p>" +
+    "<p>⚡ Ou seja, na prática você guardará uma série de números que não te dá correspondência com seed phrase, a menos que seja divulgada guarde-as como milhar da loteria.</p>";
+}
+
 
     // Eventos Enter
     const input = document.getElementById('numberInput');

@@ -34,30 +34,28 @@
       <div id="wordResult">Digite uma palavra e pressione Enter</div>
     </div>
 
-    <!-- Botão para observação -->
-    <button onclick="toggleObs()">Mostrar observação</button>
-    <div id="observacao" style="display:none; margin-top:20px; font-size:14px; color:#0ff;">
-      ⚡ Na pesquisa por número, você vai digitar o número correspondente à sua seed phrase para restaurar sua carteira.
-      ⚡ Na pesquisa por palavra, você vai digitar o a palavra correspondente à sua seed phrase para fazer backup dos numeros.
+    <!-- Observação dinâmica -->
+    <div id="observacao" style="margin-top:20px; font-size:14px; color:#0ff; display:none;">
+      <!-- Texto será inserido via JS -->
     </div>
   </div>
 
   <script>
-    // Alternância entre blocos
+    // Alternância entre blocos e observação
     function mostrarNumero() {
       document.getElementById('blocoNumero').style.display = 'block';
       document.getElementById('blocoPalavra').style.display = 'none';
+      document.getElementById('observacao').style.display = 'block';
+      document.getElementById('observacao').textContent =
+        "⚡ Na pesquisa por número, você vai digitar o número correspondente à sua seed phrase para restaurar sua carteira.";
     }
 
     function mostrarPalavra() {
       document.getElementById('blocoNumero').style.display = 'none';
       document.getElementById('blocoPalavra').style.display = 'block';
-    }
-
-    // Observação
-    function toggleObs() {
-      const obs = document.getElementById('observacao');
-      obs.style.display = (obs.style.display === "none") ? "block" : "none";
+      document.getElementById('observacao').style.display = 'block';
+      document.getElementById('observacao').textContent =
+        "⚡ Na pesquisa por palavra, você vai digitar a palavra correspondente à sua seed phrase para fazer backup dos números.";
     }
 
     // Eventos Enter

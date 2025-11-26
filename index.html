@@ -3,76 +3,107 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BIP39 Lookup - Multi Temas</title>
+  <title>BIP39 Lookup</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body class="dark">
-  <!-- Bloco do topo -->
+<body>
   <div class="top-block">
     <div class="separator"></div>
-    <p class="frase-topo">Este projeto é para simples conferência, não armazena dados de pesquisa!</p>
+    <p class="frase-topo">Ferramenta para consulta da lista BIP39</p>
     <div class="separator"></div>
   </div>
 
- <div class="container">
-  <h1>BIP39 Lookup</h1>
+  <div class="container">
+    <h1>BIP39 Lookup</h1>
 
-  <!-- Botões para alternar pesquisa -->
-  <div class="switch">
-    <button onclick="mostrarNumero()">Pesquisar por número</button>
-    <button onclick="mostrarPalavra()">Pesquisar por palavra</button>
+    <!-- Botões para alternar pesquisa -->
+    <div class="switch">
+      <button onclick="mostrarNumero()">Pesquisar por número</button>
+      <button onclick="mostrarPalavra()">Pesquisar por palavra</button>
+    </div>
+
+    <!-- Bloco número -->
+    <div id="blocoNumero">
+      <input id="numberInput" type="number" placeholder="Digite um número entre 1–2048" />
+      <div id="result">Digite um número e pressione Enter</div>
+    </div>
+
+    <!-- Bloco palavra -->
+    <div id="blocoPalavra" style="display:none;">
+      <input id="wordInput" type="text" placeholder="Digite uma palavra BIP39" />
+      <div id="wordResult">Digite uma palavra e pressione Enter</div>
+    </div>
+
+    <!-- Botão para observação -->
+    <button onclick="toggleObs()">Mostrar observação</button>
+    <div id="observacao" style="display:none; margin-top:20px; font-size:14px; color:#0ff;">
+      ⚡ Na pesquisa por número, você vai digitar o número correspondente à sua seed phrase para restaurar sua carteira.
+      ⚡ Na pesquisa por palavra, você vai digitar o a palavra correspondente à sua seed phrase para fazer backup dos numeros.
+    </div>
   </div>
 
-  <!-- Bloco número -->
-  <div id="blocoNumero">
-    <input id="numberInput" type="number" placeholder="Digite um número entre 1–2048" />
-    <div id="result">Digite um número e pressione Enter</div>
-  </div>
+  <script>
+    // Alternância entre blocos
+    function mostrarNumero() {
+      document.getElementById('blocoNumero').style.display = 'block';
+      document.getElementById('blocoPalavra').style.display = 'none';
+    }
 
-  <!-- Bloco palavra -->
-  <div id="blocoPalavra" style="display:none;">
-    <input id="wordInput" type="text" placeholder="Digite uma palavra BIP39" />
-    <div id="wordResult">Digite uma palavra e pressione Enter</div>
-  </div>
+    function mostrarPalavra() {
+      document.getElementById('blocoNumero').style.display = 'none';
+      document.getElementById('blocoPalavra').style.display = 'block';
+    }
 
-  <!-- Botão para observação -->
-  <button onclick="toggleObs()">Mostrar observação</button>
-  <div id="observacao" style="display:none; margin-top:20px;">
-    ⚡ Esta ferramenta usa a lista oficial BIP39 com 2048 palavras.
-  </div>
-</div>
+    // Observação
+    function toggleObs() {
+      const obs = document.getElementById('observacao');
+      obs.style.display = (obs.style.display === "none") ? "block" : "none";
+    }
 
+    // Eventos Enter
+    const input = document.getElementById('numberInput');
+    const result = document.getElementById('result');
+    const wordInput = document.getElementById('wordInput');
+    const wordResult = document.getElementById('wordResult');
 
-  <!-- Botão para observação -->
-  <button onclick="toggleObs()">Mostrar observação</button>
+    function pesquisar() {
+      const num = parseInt(input.value, 10);
+      result.classList.remove("valid", "invalid");
 
-  <!-- Observação escondida -->
-  <div id="observacao" style="display:none; margin-top:20px; font-size:14px; color:#0ff;">
-    ⚡ Esta ferramenta usa a lista oficial BIP39 com 2048 palavras.
-  </div>
-</div>
+      if (!isNaN(num) && num >= 1 && num <= words.length - 1) {
+        result.textContent = `${num} → ${words[num]}`;
+        result.classList.add("valid");
+      } else {
+        result.textContent = "Número inválido. Digite entre 1 e 2048.";
+        result.classList.add("invalid");
+      }
+      input.value = '';
+      input.focus();
+    }
 
-<script>
-function toggleObs() {
-  const obs = document.getElementById('observacao');
-  obs.style.display = (obs.style.display === "none") ? "block" : "none";
-}
+    function pesquisarPalavra() {
+      const palavra = wordInput.value.trim().toLowerCase();
+      wordResult.classList.remove("valid", "invalid");
 
-function mostrarNumero() {
-  document.getElementById('blocoNumero').style.display = 'block';
-  document.getElementById('blocoPalavra').style.display = 'none';
-}
+      const index = words.indexOf(palavra);
+      if (index !== -1) {
+        wordResult.textContent = `${palavra} → número ${index}`;
+        wordResult.classList.add("valid");
+      } else {
+        wordResult.textContent = "Palavra inválida. Digite uma palavra da lista BIP39.";
+        wordResult.classList.add("invalid");
+      }
+      wordInput.value = '';
+      wordInput.focus();
+    }
 
-function mostrarPalavra() {
-  document.getElementById('blocoNumero').style.display = 'none';
-  document.getElementById('blocoPalavra').style.display = 'block';
-}
-</script>
+    input.addEventListener('keydown', e => {
+      if (e.key === 'Enter') pesquisar();
+    });
 
-
- 
-  <!-- Scripts -->
-  <script src="bip39.js"></script>
-  <script src="script.js"></script>
+    wordInput.addEventListener('keydown', e => {
+      if (e.key === 'Enter') pesquisarPalavra();
+    });
+  </script>
 </body>
 </html>

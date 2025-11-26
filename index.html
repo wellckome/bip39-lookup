@@ -15,33 +15,61 @@
   </div>
 
  <div class="container">
-  <h1>BIP39 Word Finder</h1>
+  <h1>BIP39 Lookup</h1>
 
-  <!-- Grupo: pesquisa por número -->
-  <section class="field">
-    <h2 class="field-title">Pesquisa por número</h2>
-    <label for="numberInput" class="field-label">Número (1–2048)</label>
-    <input id="numberInput" type="number" class="input" placeholder="Digite um número entre 1–2048" />
-    <div class="actions">
-      <button class="btn" id="btnNumberSearch">Pesquisar</button>
-      <button class="btn btn-outline" id="btnClearNumber">Limpar</button>
-    </div>
-    <div id="result" class="output">Digite um número e pressione Enter</div>
-  </section>
+  <!-- Botões para alternar pesquisa -->
+  <div class="switch">
+    <button onclick="mostrarNumero()">Pesquisar por número</button>
+    <button onclick="mostrarPalavra()">Pesquisar por palavra</button>
+  </div>
 
-  <!-- Grupo: pesquisa por palavra -->
-  <section class="field">
-    <h2 class="field-title">Pesquisa por palavra</h2>
-    <label for="wordInput" class="field-label">Palavra BIP39</label>
-    <input id="wordInput" type="text" class="input" placeholder="Digite uma palavra BIP39" />
-    <div class="actions">
-      <button class="btn" id="btnWordSearch">Pesquisar</button>
-      <button class="btn btn-outline" id="btnClearWord">Limpar</button>
-    </div>
-    <div id="wordResult" class="output">Digite uma palavra e pressione Enter</div>
-  </section>
+  <!-- Bloco número -->
+  <div id="blocoNumero">
+    <input id="numberInput" type="number" placeholder="Digite um número entre 1–2048" />
+    <div id="result">Digite um número e pressione Enter</div>
+  </div>
+
+  <!-- Bloco palavra -->
+  <div id="blocoPalavra" style="display:none;">
+    <input id="wordInput" type="text" placeholder="Digite uma palavra BIP39" />
+    <div id="wordResult">Digite uma palavra e pressione Enter</div>
+  </div>
+
+  <!-- Botão para observação -->
+  <button onclick="toggleObs()">Mostrar observação</button>
+  <div id="observacao" style="display:none; margin-top:20px;">
+    ⚡ Esta ferramenta usa a lista oficial BIP39 com 2048 palavras.
+  </div>
 </div>
-    
+
+
+  <!-- Botão para observação -->
+  <button onclick="toggleObs()">Mostrar observação</button>
+
+  <!-- Observação escondida -->
+  <div id="observacao" style="display:none; margin-top:20px; font-size:14px; color:#0ff;">
+    ⚡ Esta ferramenta usa a lista oficial BIP39 com 2048 palavras.
+  </div>
+</div>
+
+<script>
+function toggleObs() {
+  const obs = document.getElementById('observacao');
+  obs.style.display = (obs.style.display === "none") ? "block" : "none";
+}
+
+function mostrarNumero() {
+  document.getElementById('blocoNumero').style.display = 'block';
+  document.getElementById('blocoPalavra').style.display = 'none';
+}
+
+function mostrarPalavra() {
+  document.getElementById('blocoNumero').style.display = 'none';
+  document.getElementById('blocoPalavra').style.display = 'block';
+}
+</script>
+
+
  
   <!-- Scripts -->
   <script src="bip39.js"></script>

@@ -1,24 +1,14 @@
 /* Reset básico */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 /* Configuração base */
 body {
   font-family: 'Segoe UI', sans-serif;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
   align-items: center;
   min-height: 100vh;
-  transition: background 0.3s ease, color 0.3s ease;
   padding-top: 24px;
-}
-
-/* Tema único: escuro */
-body {
   background: #111;
   color: #eee;
 }
@@ -32,7 +22,6 @@ body {
   gap: 16px;
   margin-bottom: 40px;
 }
-
 .separator {
   width: 80%;
   max-width: 650px;
@@ -41,22 +30,15 @@ body {
   border-radius: 50px;
   box-shadow: 0 0 10px #0ff, 0 0 20px #09c, 0 0 40px #0ff;
 }
-
 .frase-topo {
   text-align: center;
   font-size: 18px;
   font-weight: bold;
   animation: pulseGlow 2s infinite alternate;
 }
-
 @keyframes pulseGlow {
-  from {
-    text-shadow: 0 0 8px #0ff, 0 0 16px #09c;
-  }
-
-  to {
-    text-shadow: 0 0 16px #0ff, 0 0 32px #09c, 0 0 48px #0ff;
-  }
+  from { text-shadow: 0 0 8px #0ff, 0 0 16px #09c; }
+  to { text-shadow: 0 0 16px #0ff, 0 0 32px #09c, 0 0 48px #0ff; }
 }
 
 /* Container */
@@ -67,13 +49,9 @@ body {
   border-radius: 30px;
   width: 80%;
   max-width: 650px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
   box-shadow: 0 10px 25px #00ffd5, 0 20px 50px #2abb66, 0 30px 80px #1f8a4d;
 }
-
-.container:hover {
-  transform: translateY(-5px);
-}
+.container:hover { transform: translateY(-5px); }
 
 /* Título */
 h1 {
@@ -81,20 +59,13 @@ h1 {
   text-shadow: 0 0 10px #0ff, 0 0 20px #09c;
   animation: glow 2s infinite alternate;
 }
-
 @keyframes glow {
-  from {
-    text-shadow: 0 0 10px #0ff;
-  }
-
-  to {
-    text-shadow: 0 0 20px #09c;
-  }
+  from { text-shadow: 0 0 10px #0ff; }
+  to { text-shadow: 0 0 20px #09c; }
 }
 
 /* Inputs */
-#numberInput,
-#wordInput {
+#numberInput, #wordInput {
   width: 100%;
   padding: 10px;
   font-size: 16px;
@@ -104,35 +75,26 @@ h1 {
   background: #222;
   color: #0ff;
   box-shadow: 0 0 8px #0ff, 0 0 15px #09c;
-  transition: box-shadow 0.3s ease, transform 0.2s ease;
   margin-top: 30px;
 }
-
-#numberInput:focus,
-#wordInput:focus {
+#numberInput:focus, #wordInput:focus {
   box-shadow: 0 0 15px #0ff, 0 0 25px #09c;
   transform: scale(1.02);
   outline: none;
 }
 
 /* Resultados */
-#result,
-#wordResult {
+#result, #wordResult {
   margin-top: 40px;
   font-size: 22px;
   font-family: 'Courier New', monospace;
   font-weight: bold;
-  transition: text-shadow 0.3s ease, color 0.3s ease;
 }
-
-#result.valid,
-#wordResult.valid {
+#result.valid, #wordResult.valid {
   color: #00ffd5;
   text-shadow: 0 0 12px #00ffd5, 0 0 24px #2abb66;
 }
-
-#result.invalid,
-#wordResult.invalid {
+#result.invalid, #wordResult.invalid {
   color: #ff4444;
   text-shadow: 0 0 12px #ff4444, 0 0 24px #ff0000;
 }
@@ -150,67 +112,50 @@ button {
   font-weight: bold;
   font-size: 14px;
   animation: gradientShift 6s ease infinite;
-  transition: 0.3s ease;
 }
-
 @keyframes gradientShift {
-  0% {
-    background-position: 0% 50%;
-  }
-
-  50% {
-    background-position: 100% 50%;
-  }
-
-  100% {
-    background-position: 0% 50%;
-  }
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
+button:hover { box-shadow: 0 0 12px #0ff; transform: scale(1.05); }
 
-button:hover {
-  box-shadow: 0 0 12px #0ff;
-  transform: scale(1.05);
-}
-
+/* Avisos */
 #observacao {
   margin-top: 20px;
   font-size: 14px;
   color: #0ff;
   text-align: left;
-  /* alinhado à esquerda */
   background: #222;
-  /* fundo escuro */
   padding: 12px;
   border-radius: 8px;
   box-shadow: 0 0 8px #0ff;
-  /* efeito neon */
 }
 
-#observacao p {
-  margin: 6px 0;
+/* Badge do contador */
+.aviso-contador {
+  display: inline-block;
+  margin: 12px auto 0;
+  text-align: center;
+  background: #ff4444;
+  color: #fff;
+  font-weight: bold;
+  padding: 6px 14px;
+  border-radius: 20px;
+  box-shadow: 0 0 8px #ff4444, 0 0 16px #ff0000;
+  animation: pulseBadge 1.5s infinite alternate;
 }
-
-
+@keyframes pulseBadge {
+  from { box-shadow: 0 0 8px #ff4444, 0 0 16px #ff0000; }
+  to { box-shadow: 0 0 16px #ff0000, 0 0 32px #ff4444; }
+}
 
 /* Responsividade */
 @media (max-width: 768px) {
-  .container {
-    width: 90%;
-    padding: 20px;
-  }
-
-  h1 {
-    font-size: 24px;
-  }
-
-  #result,
-  #wordResult {
-    font-size: 18px;
-  }
+  .container { width: 90%; padding: 20px; }
+  h1 { font-size: 24px; }
+  #result, #wordResult { font-size: 18px; }
 }
 
-#result,
-#wordResult,
-#observacao {
-  display: none; /* começa oculto */
-}
+/* Inicialmente ocultos */
+#result, #wordResult, #observacao, #contadorAviso { display: none; }

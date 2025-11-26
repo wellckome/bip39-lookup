@@ -2,43 +2,48 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BIP39 Lookup</title>
+  <title>BIP39 Pesquisa</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="top-block">
     <div class="separator"></div>
-    <p class="frase-topo">Este projeto é para simples conferência, não armazena dados de pesquisa!</p>
+    <div class="frase-topo">Este projeto é para simples conferência, não armazena dados de pesquisa!</div>
     <div class="separator"></div>
   </div>
+
   <div class="container">
-    <h1>BIP39 Lookup</h1>
+    <h1>Pesquisar Palavra ou Número</h1>
 
     <!-- Botões -->
-    <div>
-      <button id="btnNumero">Pesquisar por número</button>
-      <button id="btnPalavra">Pesquisar por palavra</button>
-    </div>
+    <button id="btnNumero">Pesquisar por Número</button>
+    <button id="btnPalavra">Pesquisar por Palavra</button>
 
-    <!-- Bloco de pesquisa por número -->
+    <!-- Blocos de pesquisa -->
     <div id="blocoNumero" style="display:none;">
-      <input id="numberInput" type="number" placeholder="Digite um número entre 1–2048" autocomplete="off" />
+      <input type="number" id="numberInput" 
+             placeholder="Digite um número (1-2048)" 
+             autocomplete="off">
       <div id="result"></div>
     </div>
 
-    <!-- Bloco de pesquisa por palavra -->
     <div id="blocoPalavra" style="display:none;">
-      <input id="wordInput" type="text" placeholder="Digite uma palavra BIP39" autocomplete="off" />
+      <input type="text" id="wordInput" 
+             placeholder="Digite uma palavra BIP39" 
+             autocomplete="off">
       <div id="wordResult"></div>
     </div>
 
-    <!-- Avisos -->
+    <!-- Avisos alinhados à esquerda -->
     <div id="observacao"></div>
+
+    <!-- Badge do contador centralizada -->
+    <div id="contadorAviso" class="aviso-contador"></div>
   </div>
 
-  <!-- Scripts -->
-  <script src="words.js" defer></script>
+  <!-- ✅ Carregar primeiro o words.js -->
+  <script src="words.js"></script>
+  <!-- ✅ Depois carregar o script principal -->
   <script type="module" src="script.js"></script>
 </body>
 </html>

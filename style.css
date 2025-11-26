@@ -1,5 +1,9 @@
 /* Reset básico */
-* { margin: 0; padding: 0; box-sizing: border-box; }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 /* Configuração base */
 body {
@@ -46,8 +50,13 @@ body {
 }
 
 @keyframes pulseGlow {
-  from { text-shadow: 0 0 8px #0ff, 0 0 16px #09c; }
-  to   { text-shadow: 0 0 16px #0ff, 0 0 32px #09c, 0 0 48px #0ff; }
+  from {
+    text-shadow: 0 0 8px #0ff, 0 0 16px #09c;
+  }
+
+  to {
+    text-shadow: 0 0 16px #0ff, 0 0 32px #09c, 0 0 48px #0ff;
+  }
 }
 
 /* Container */
@@ -61,7 +70,10 @@ body {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   box-shadow: 0 10px 25px #00ffd5, 0 20px 50px #2abb66, 0 30px 80px #1f8a4d;
 }
-.container:hover { transform: translateY(-5px); }
+
+.container:hover {
+  transform: translateY(-5px);
+}
 
 /* Título */
 h1 {
@@ -69,46 +81,60 @@ h1 {
   text-shadow: 0 0 10px #0ff, 0 0 20px #09c;
   animation: glow 2s infinite alternate;
 }
+
 @keyframes glow {
-  from { text-shadow: 0 0 10px #0ff; }
-  to   { text-shadow: 0 0 20px #09c; }
+  from {
+    text-shadow: 0 0 10px #0ff;
+  }
+
+  to {
+    text-shadow: 0 0 20px #09c;
+  }
 }
 
 /* Inputs */
-#numberInput, #wordInput {
-  width: 100%; 
-  padding: 10px; 
+#numberInput,
+#wordInput {
+  width: 100%;
+  padding: 10px;
   font-size: 16px;
-  border: none; 
-  border-radius: 8px; 
+  border: none;
+  border-radius: 8px;
   text-align: center;
-  background: #222; 
+  background: #222;
   color: #0ff;
   box-shadow: 0 0 8px #0ff, 0 0 15px #09c;
   transition: box-shadow 0.3s ease, transform 0.2s ease;
   margin-top: 30px;
 }
-#numberInput:focus, #wordInput:focus {
+
+#numberInput:focus,
+#wordInput:focus {
   box-shadow: 0 0 15px #0ff, 0 0 25px #09c;
   transform: scale(1.02);
   outline: none;
 }
 
 /* Resultados */
-#result, #wordResult {
+#result,
+#wordResult {
   margin-top: 40px;
   font-size: 22px;
   font-family: 'Courier New', monospace;
   font-weight: bold;
   transition: text-shadow 0.3s ease, color 0.3s ease;
 }
-#result.valid, #wordResult.valid { 
-  color: #00ffd5; 
-  text-shadow: 0 0 12px #00ffd5, 0 0 24px #2abb66; 
+
+#result.valid,
+#wordResult.valid {
+  color: #00ffd5;
+  text-shadow: 0 0 12px #00ffd5, 0 0 24px #2abb66;
 }
-#result.invalid, #wordResult.invalid { 
-  color: #ff4444; 
-  text-shadow: 0 0 12px #ff4444, 0 0 24px #ff0000; 
+
+#result.invalid,
+#wordResult.invalid {
+  color: #ff4444;
+  text-shadow: 0 0 12px #ff4444, 0 0 24px #ff0000;
 }
 
 /* Botão */
@@ -126,23 +152,40 @@ button {
   animation: gradientShift 6s ease infinite;
   transition: 0.3s ease;
 }
+
 @keyframes gradientShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
 }
-button:hover { box-shadow: 0 0 12px #0ff; transform: scale(1.05); }
+
+button:hover {
+  box-shadow: 0 0 12px #0ff;
+  transform: scale(1.05);
+}
 
 #observacao {
   margin-top: 20px;
   font-size: 14px;
   color: #0ff;
-  text-align: left;         /* alinhado à esquerda */
-  background: #222;         /* fundo escuro */
+  text-align: left;
+  /* alinhado à esquerda */
+  background: #222;
+  /* fundo escuro */
   padding: 12px;
   border-radius: 8px;
-  box-shadow: 0 0 8px #0ff; /* efeito neon */
+  box-shadow: 0 0 8px #0ff;
+  /* efeito neon */
 }
+
 #observacao p {
   margin: 6px 0;
 }
@@ -155,10 +198,13 @@ button:hover { box-shadow: 0 0 12px #0ff; transform: scale(1.05); }
     width: 90%;
     padding: 20px;
   }
+
   h1 {
     font-size: 24px;
   }
-  #result, #wordResult {
+
+  #result,
+  #wordResult {
     font-size: 18px;
   }
 }

@@ -24,13 +24,22 @@
 
     <!-- Bloco número -->
     <div id="blocoNumero">
-      <input id="numberInput" type="number" placeholder="Digite um número entre 1–2048" />
+      <input id="numberInput" 
+             type="number" 
+             placeholder="Digite um número entre 1–2048" 
+             autocomplete="off" />
       <div id="result">Digite um número e pressione Enter</div>
     </div>
 
     <!-- Bloco palavra -->
     <div id="blocoPalavra" style="display:none;">
-      <input id="wordInput" type="text" placeholder="Digite uma palavra BIP39" />
+      <input id="wordInput" 
+             type="text" 
+             placeholder="Digite uma palavra BIP39" 
+             autocomplete="off" 
+             autocorrect="off" 
+             autocapitalize="none" 
+             spellcheck="false" />
       <div id="wordResult">Digite uma palavra e pressione Enter</div>
     </div>
 
@@ -38,7 +47,8 @@
     <div id="observacao" style="display:none;"></div>
   </div>
 
-  <!-- Script externo -->
-  <script src="script.js"></script>
+  <!-- Scripts externos -->
+  <script src="words.js" defer></script>
+  <script src="script.js" defer></script>
 </body>
 </html>

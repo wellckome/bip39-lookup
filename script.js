@@ -90,7 +90,8 @@ function pesquisar() {
   const num = parseInt(input.value, 10);
   result.classList.remove('valid', 'invalid');
 
-  if (!Number.isInteger(num) || num < 1 || num > MAX) {
+  // Validação correta: número inteiro entre 1 e 2048
+  if (!Number.isInteger(num) || num < 1 || num > 2048) {
     result.textContent = 'Número inválido. Digite entre 1 e 2048.';
     result.classList.add('invalid');
     input.value = '';
@@ -98,8 +99,8 @@ function pesquisar() {
     return;
   }
 
-  // words.js deve definir globalmente: const words = [...];
-  const word = (typeof words !== 'undefined' && words[num - 1]) ? words[num - 1] : null;
+  // Ajuste de índice: número 1 → índice 0
+  const word = words[num - 1];
 
   if (word) {
     result.textContent = `${num} → ${word}`;

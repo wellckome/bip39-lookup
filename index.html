@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <title>BIP39 Lookup • Cold Wallet Seed Converter (Offline)</title>
@@ -9,6 +10,7 @@
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
 </head>
+
 <body>
   <div class="top-block">
     <div class="separator"></div>
@@ -20,11 +22,17 @@
     <h2>Pesquisar por Palavra ou Número.</h2>
 
     <div class="passphrase-warning">
-  🔒 <strong>Passphrase é essencial!</strong><br>
-  Sua seed numérica <em>não é suficiente</em> sem uma passphrase secreta.<br>
-  <strong>Nunca anote a Passphrase junto com os números.</strong>   Guarde-a só na memória.<br>
-  ⚠️ <strong>Sempre use esta ou qualquer ferramenta em modo offline.</strong>
-</div>
+      🔒 <strong>Passphrase é essencial!</strong><br>
+      Sua seed numérica <em>não é suficiente</em> sem uma passphrase secreta.<br>
+      <strong>Nunca a anote junto com os números.</strong> Guarde-a só na memória.<br>
+      ⚠️ <strong>Sempre use esta ferramenta em modo offline.</strong><br>
+
+      <strong>LEMBRE-SE</strong>
+      <br>
+      <em style="color:#0ff; font-style: italic; font-size: 15px;">
+        A auto-custódia começa com um caderno, uma mente segura e uma passphrase que ninguém mais conhece.
+      </em>
+    </div>
 
     <!-- Botões -->
     <button id="btnNumero">Pesquisar por Número</button>
@@ -54,7 +62,9 @@
   <script src="script.js"></script>
 
   <footer style="text-align:center; margin-top:30px; color:#666; font-size:0.85rem;">
-    <a href="https://github.com/wellckome/bip39-lookup" target="_blank" style="color:#0af; text-decoration:underline;">Código-fonte no GitHub</a>
+    <a href="https://github.com/wellckome/bip39-lookup" target="_blank"
+      style="color:#0af; text-decoration:underline;">Código-fonte no GitHub</a>
   </footer>
 </body>
+
 </html>

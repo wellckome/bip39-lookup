@@ -38,7 +38,7 @@ body {
 }
 @keyframes pulseGlow {
   from { text-shadow: 0 0 8px #0ff, 0 0 16px #09c; }
-  to { text-shadow: 0 0 16px #0ff, 0 0 32px #09c, 0 0 48px #0ff; }
+  to   { text-shadow: 0 0 16px #0ff, 0 0 32px #09c, 0 0 48px #0ff; }
 }
 
 /* Container */
@@ -48,7 +48,7 @@ body {
   padding: 30px 30px 60px 30px;
   border-radius: 30px;
   width: 80%;
-  max-width: 650px;
+  max-width: 850px;
   box-shadow: 0 10px 25px #00ffd5, 0 20px 50px #2abb66, 0 30px 80px #1f8a4d;
 }
 .container:hover { transform: translateY(-5px); }
@@ -61,12 +61,21 @@ h1 {
 }
 @keyframes glow {
   from { text-shadow: 0 0 10px #0ff; }
-  to { text-shadow: 0 0 20px #09c; }
+  to   { text-shadow: 0 0 20px #09c; }
+}
+
+/* Inputs e Aviso com mesma largura */
+#numberInput,
+#wordInput,
+#observacao {
+  width: 100%;
+  max-width: 800px;   /* limite para não ficar gigante */
+  margin: 0 auto;     /* centraliza dentro do container */
+  box-sizing: border-box;
 }
 
 /* Inputs */
 #numberInput, #wordInput {
-  width: 100%;
   padding: 10px;
   font-size: 16px;
   border: none;
@@ -114,8 +123,8 @@ button {
   animation: gradientShift 6s ease infinite;
 }
 @keyframes gradientShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
 button:hover { box-shadow: 0 0 12px #0ff; transform: scale(1.05); }
@@ -123,6 +132,7 @@ button:hover { box-shadow: 0 0 12px #0ff; transform: scale(1.05); }
 /* Avisos */
 #observacao {
   margin-top: 20px;
+  margin-bottom: 24px; /* espaço abaixo do aviso */
   font-size: 14px;
   color: #0ff;
   text-align: left;
@@ -135,7 +145,7 @@ button:hover { box-shadow: 0 0 12px #0ff; transform: scale(1.05); }
 /* Badge do contador */
 .aviso-contador {
   display: inline-block;
-  margin: 12px auto 0;
+  margin: 0 auto;        /* centraliza horizontalmente */
   text-align: center;
   background: #ff4444;
   color: #fff;
@@ -147,14 +157,17 @@ button:hover { box-shadow: 0 0 12px #0ff; transform: scale(1.05); }
 }
 @keyframes pulseBadge {
   from { box-shadow: 0 0 8px #ff4444, 0 0 16px #ff0000; }
-  to { box-shadow: 0 0 16px #ff0000, 0 0 32px #ff4444; }
+  to   { box-shadow: 0 0 16px #ff0000, 0 0 32px #ff4444; }
 }
 
 /* Responsividade */
-@media (max-width: 768px) {
+@media (max-width: 800px) {
   .container { width: 90%; padding: 20px; }
   h1 { font-size: 24px; }
   #result, #wordResult { font-size: 18px; }
+
+  /* aumenta o espaço entre aviso e badge em telas menores */
+  #observacao { margin-bottom: 32px; }
 }
 
 /* Inicialmente ocultos */

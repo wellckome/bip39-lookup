@@ -59,7 +59,7 @@ function mostrarAviso(mensagem, duracaoSegundos) {
       avisoIntervalo = null;
       obs.style.display = 'none';
       contador.style.display = 'none';
-      container.style.maxWidth = '500px';
+      container.style.maxWidth = '850px';
       return;
     }
     contador.textContent = `⏳ ${tempoRestante} s...`;

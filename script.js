@@ -1,8 +1,8 @@
-import { avisosNumero, avisosPalavra } from './avisos.js';
+// script.js — versão sem módulos (funciona offline total)
 
 // Tempo global dos avisos
 const TEMPO_AVISO = 15; // segundos
-let avisoIntervalo = null; // controla o contador ativo
+let avisoIntervalo = null;
 
 // Cache de elementos
 const container = document.querySelector('.container');
@@ -20,7 +20,6 @@ const wordResult = document.getElementById('wordResult');
 const btnNumero = document.getElementById('btnNumero');
 const btnPalavra = document.getElementById('btnPalavra');
 
-// Constantes
 const MAX = 2048;
 
 // Função para parar contador e esconder badge
@@ -32,34 +31,28 @@ function pararContador() {
   contador.style.display = 'none';
 }
 
-// Função genérica para mostrar aviso + contador (badge fora dos avisos)
+// Mostrar aviso + contador
 function mostrarAviso(mensagem, duracaoSegundos) {
-  // limpa qualquer contador anterior
   pararContador();
 
   let tempoRestante = duracaoSegundos;
 
-  // aviso à esquerda
   obs.style.display = 'block';
   obs.innerHTML = `<div class="aviso-texto">${mensagem}</div>`;
 
-  // badge do contador centralizada
   contador.style.display = 'inline-block';
   contador.textContent = `⏳ ${tempoRestante} s...`;
 
-  // expande container enquanto há aviso
   container.style.maxWidth = '850px';
 
-  // inicia contador regressivo
   avisoIntervalo = setInterval(() => {
     tempoRestante--;
     if (tempoRestante <= 0) {
-      // fim imediato quando chega a zero
       clearInterval(avisoIntervalo);
       avisoIntervalo = null;
       obs.style.display = 'none';
       contador.style.display = 'none';
-      container.style.maxWidth = '850px';
+      container.style.maxWidth = '500px';
       return;
     }
     contador.textContent = `⏳ ${tempoRestante} s...`;
@@ -68,35 +61,27 @@ function mostrarAviso(mensagem, duracaoSegundos) {
 
 // Mostrar pesquisa por número
 function mostrarNumero() {
-  // alterna visibilidade dos blocos
   blocoNumero.style.display = 'block';
   blocoPalavra.style.display = 'none';
-
   result.style.display = 'block';
   wordResult.style.display = 'none';
   result.textContent = '';
   result.classList.remove('valid', 'invalid');
-
   input.value = '';
   input.focus();
-
   mostrarAviso(avisosNumero, TEMPO_AVISO);
 }
 
 // Mostrar pesquisa por palavra
 function mostrarPalavra() {
-  // alterna visibilidade dos blocos
   blocoNumero.style.display = 'none';
   blocoPalavra.style.display = 'block';
-
   wordResult.style.display = 'block';
   result.style.display = 'none';
   wordResult.textContent = '';
   wordResult.classList.remove('valid', 'invalid');
-
   wordInput.value = '';
   wordInput.focus();
-
   mostrarAviso(avisosPalavra, TEMPO_AVISO);
 }
 
@@ -113,8 +98,8 @@ function pesquisar() {
     return;
   }
 
-  // words.js deve expor um array global "words" com 2048 itens (BIP39)
-  const word = (typeof words !== 'undefined') ? words[num] : null;
+  // words.js deve definir globalmente: const words = [...];
+  const word = (typeof words !== 'undefined' && words[num - 1]) ? words[num - 1] : null;
 
   if (word) {
     result.textContent = `${num} → ${word}`;
@@ -141,10 +126,14 @@ function pesquisarPalavra() {
     return;
   }
 
-  const index = (typeof words !== 'undefined') ? words.indexOf(palavra) : -1;
+  // Busca na lista global `words`
+  let index = -1;
+  if (typeof words !== 'undefined') {
+    index = words.indexOf(palavra);
+  }
 
   if (index !== -1) {
-    wordResult.textContent = `${palavra} → número ${index}`;
+    wordResult.textContent = `${palavra} → número ${index + 1}`;
     wordResult.classList.add('valid');
   } else {
     wordResult.textContent = 'Palavra inválida. Use uma da lista BIP39.';
@@ -155,24 +144,21 @@ function pesquisarPalavra() {
   wordInput.focus();
 }
 
-// Eventos de clique dos botões
+// Eventos
 btnNumero.addEventListener('click', mostrarNumero);
 btnPalavra.addEventListener('click', mostrarPalavra);
 
-// Eventos Enter
 input.addEventListener('keydown', (e) => {
   if (e.key === 'Enter') pesquisar();
 });
+
 wordInput.addEventListener('keydown', (e) => {
   if (e.key === 'Enter') pesquisarPalavra();
 });
 
-// Segurança: ao esconder observação manualmente, garanta estado limpo
+// Garantir estado inicial limpo
 function esconderAviso() {
   obs.style.display = 'none';
   pararContador();
   container.style.maxWidth = '500px';
 }
-
-// Exporte se precisar usar em outros módulos (opcional)
-// export { mostrarNumero, mostrarPalavra, pesquisar, pesquisarPalavra, esconderAviso };

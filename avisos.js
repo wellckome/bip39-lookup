@@ -1,6 +1,6 @@
 // Avisos separados em constantes
 
-export const avisosNumero = `
+const avisosNumero = `
 <p style="color:#00ff7f;">👉 Na pesquisa por número, você vai digitar o número correspondente à sua Seed-Phrase para restaurar sua carteira.</p>
 <p style="color:#00ff7f;">👉 Supondo que já tenha anotado em um lugar seguro seus números correspondentes.</p>
 <p style="color:#00ff7f;">👉 Ou seja, na prática você pegará seus números e restaurará sua Seed-Phrase (Wallet).</p>
@@ -11,7 +11,7 @@ export const avisosNumero = `
 <p style="color:#00ff7f;">👉 Boa prática: sempre pesquisar mais palavras do que precisa (ex: se for 12 → pesquise 15, se for 24 → pesquise 30).</p>
 `;
 
-export const avisosPalavra = `
+const avisosPalavra = `
 <p style="color:#00ff7f;">👉Na pesquisa por palavra, você vai digitar a palavra correspondente à sua Seed-Phrase para fazer backup dos números.</p>
 <p style="color:#00ff7f;">👉 Ou seja, na prática você guardará uma série de números que não te dá correspondência direta com Seed-Phrase.</p>
 <p style="color:#00ff7f;">👉 Mas lembre-se que o ideal é ter sempre uma Hard Wallet com uma PassPhrase segura e complexa.</p>

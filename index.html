@@ -2,8 +2,12 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>BIP39 Pesquisa</title>
+  <title>BIP39 Lookup • Cold Wallet Seed Converter (Offline)</title>
   <link rel="stylesheet" href="style.css">
+  <!-- Metadados para evitar cache -->
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
 </head>
 <body>
   <div class="top-block">
@@ -13,30 +17,26 @@
   </div>
 
   <div class="container">
-    <h2>Pesquisar por Palavra ou Número.</h2>    
+    <h2>Pesquisar por Palavra ou Número.</h2>
 
     <div class="passphrase-warning">
       🔒 <strong>Passphrase é essencial!</strong><br>
       Sua seed numérica <em>não é suficiente</em> sem uma passphrase secreta.<br>
       <strong>Nunca a anote junto com os números.</strong> Guarde-a só na memória.
     </div>
-    
+
     <!-- Botões -->
     <button id="btnNumero">Pesquisar por Número</button>
     <button id="btnPalavra">Pesquisar por Palavra</button>
 
     <!-- Blocos de pesquisa -->
     <div id="blocoNumero" style="display:none;">
-      <input type="number" id="numberInput" 
-             placeholder="Digite um número (1-2048)" 
-             autocomplete="off">
+      <input type="number" id="numberInput" placeholder="Digite um número (1-2048)" autocomplete="off">
       <div id="result"></div>
     </div>
 
     <div id="blocoPalavra" style="display:none;">
-      <input type="text" id="wordInput" 
-             placeholder="Digite uma palavra BIP39" 
-             autocomplete="off">
+      <input type="text" id="wordInput" placeholder="Digite uma palavra BIP39" autocomplete="off">
       <div id="wordResult"></div>
     </div>
 
@@ -47,9 +47,13 @@
     <div id="contadorAviso" class="aviso-contador"></div>
   </div>
 
-  <!-- ✅ Carregar primeiro o words.js -->
+  <!-- Ordem de carregamento: 1. palavras, 2. avisos, 3. lógica -->
   <script src="words.js"></script>
-  <!-- ✅ Depois carregar o script principal -->
-  <script type="module" src="script.js"></script>
+  <script src="avisos.js"></script>
+  <script src="script.js"></script>
+
+  <footer style="text-align:center; margin-top:30px; color:#666; font-size:0.85rem;">
+    <a href="https://github.com/wellckome/bip39-lookup" target="_blank" style="color:#0af; text-decoration:underline;">Código-fonte no GitHub</a>
+  </footer>
 </body>
 </html>

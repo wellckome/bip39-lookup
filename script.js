@@ -1,7 +1,7 @@
 import { avisosNumero, avisosPalavra } from './avisos.js';
 
 // Tempo global dos avisos
-const TEMPO_AVISO = 20; // segundos
+const TEMPO_AVISO = 15; // segundos
 let avisoIntervalo = null; // controla o contador ativo
 
 // Cache de elementos
@@ -45,7 +45,7 @@ function mostrarAviso(mensagem, duracaoSegundos) {
 
   // badge do contador centralizada
   contador.style.display = 'inline-block';
-  contador.textContent = `⏳ ${tempoRestante} segundos...`;
+  contador.textContent = `⏳ ${tempoRestante} s...`;
 
   // expande container enquanto há aviso
   container.style.maxWidth = '850px';
@@ -62,7 +62,7 @@ function mostrarAviso(mensagem, duracaoSegundos) {
       container.style.maxWidth = '500px';
       return;
     }
-    contador.textContent = `⏳ ${tempoRestante} segundos...`;
+    contador.textContent = `⏳ ${tempoRestante} s...`;
   }, 1000);
 }
 
